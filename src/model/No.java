@@ -1,0 +1,42 @@
+package model;
+
+import java.util.ArrayList;
+
+public class No {
+    private String conteudo;
+    private ArrayList<AtributoAdicional> atributosAdiconais;
+    private No filhoEsquerda;
+    private No filhoDireita;
+
+    public No(String conteudo) {
+        this.conteudo = conteudo;
+        this.atributosAdiconais = new ArrayList<AtributoAdicional>();
+        this.filhoEsquerda = null;
+        this.filhoDireita = null;
+    }
+
+    public String getConteudo() {
+        return conteudo;
+    }
+    public void setConteudo(String conteudo) {
+        this.conteudo = conteudo;
+    }
+    public ArrayList<AtributoAdicional> getAtributosAdiconais() {
+        return atributosAdiconais;
+    }
+    public void setAtributosAdiconais(ArrayList<AtributoAdicional> atributosAdiconais) {
+        this.atributosAdiconais = atributosAdiconais;
+    }
+    public No getFilhoEsquerda() {
+        return filhoEsquerda;
+    }
+    public void setFilhoEsquerda(No filhoEsquerda) {
+        this.filhoEsquerda = filhoEsquerda;
+    }
+    public No getFilhoDireita() {
+        return filhoDireita;
+    }
+    public void setFilhoDireita(No filhoDireita) {
+        this.filhoDireita = filhoDireita;
+    }
+}
