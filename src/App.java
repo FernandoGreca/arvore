@@ -14,5 +14,6 @@ public class App {
         arvore.getPrimeiro().getFilhoDireita().setFilhoDireita(new No("F"));
 
         System.out.println(arvore.contarNo());
+        arvore.percorrerPreOrdem();
     }
 }

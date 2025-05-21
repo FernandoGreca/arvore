@@ -22,7 +22,7 @@ public class Arvore {
         return this.contador;
     }
 
-    public void percorrerContanto(No aux) {
+    private void percorrerContanto(No aux) {
         if (aux.getFilhoEsquerda() != null) {
             this.contador++;
             percorrerContanto(aux.getFilhoEsquerda());
@@ -31,6 +31,22 @@ public class Arvore {
         if (aux.getFilhoDireita() != null) {
             this.contador++;
             percorrerContanto(aux.getFilhoDireita());
+        }
+    }
+
+    public void percorrerPreOrdem() {
+        chamadoPercorrerPreOrdem(this.primeiro);
+    }
+
+    private void chamadoPercorrerPreOrdem(No aux) {
+        System.out.println("Conteudo No " + aux.getConteudo());
+
+        if (aux.getFilhoEsquerda() != null) {
+            chamadoPercorrerPreOrdem(aux.getFilhoEsquerda());
+        }
+
+        if (aux.getFilhoDireita() != null) {
+            chamadoPercorrerPreOrdem(aux.getFilhoDireita());
         }
     }
 }
