@@ -13,7 +13,23 @@ public class App {
 
         arvore.getPrimeiro().getFilhoDireita().setFilhoDireita(new No("F"));
 
-        System.out.println(arvore.contarNo());
+
+        System.out.println("________________");
+        System.out.println("Quantidade de Nos " + arvore.contarNo());
+        System.out.println("________________");
+
+        System.out.println();
+
+        System.out.println("________________");
+        System.out.println("Percorendo Pre Ordem");
         arvore.percorrerPreOrdem();
+        System.out.println("________________");
+
+        System.out.println();
+
+        System.out.println("________________");
+        System.out.println("Percorendo Em Ordem");
+        arvore.percorrerEmOrdem();
+        System.out.println("________________");
     }
 }

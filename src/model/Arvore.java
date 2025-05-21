@@ -51,4 +51,21 @@ public class Arvore {
             chamadoPercorrerPreOrdem(aux.getFilhoDireita());
         }
     }
+
+    // Percorrer Em Ordem
+    public void percorrerEmOrdem() {
+        chamadoPercorrerEmOrdem(this.primeiro);
+    }
+
+    public void chamadoPercorrerEmOrdem(No aux) {
+        if (aux.getFilhoEsquerda() != null) {
+            chamadoPercorrerEmOrdem(aux.getFilhoEsquerda());
+        }
+
+        System.out.println("Conteudo No " +aux.getConteudo());
+
+        if (aux.getFilhoDireita() != null) {
+            chamadoPercorrerEmOrdem(aux.getFilhoDireita());
+        }
+    }
 }
