@@ -16,6 +16,7 @@ public class Arvore {
         this.primeiro = primeiro;
     }
     
+    // Contar No
     public int contarNo() {
         No aux = this.primeiro;
         percorrerContanto(aux);
@@ -34,6 +35,7 @@ public class Arvore {
         }
     }
 
+    // Percorrer Pre Ordem
     public void percorrerPreOrdem() {
         chamadoPercorrerPreOrdem(this.primeiro);
     }
