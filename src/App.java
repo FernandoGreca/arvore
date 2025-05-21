@@ -31,5 +31,12 @@ public class App {
         System.out.println("Percorendo Em Ordem");
         arvore.percorrerEmOrdem();
         System.out.println("________________");
+
+        System.out.println();
+
+        System.out.println("________________");
+        System.out.println("Percorendo Pos Ordem");
+        arvore.percorrerPosOrdem();
+        System.out.println("________________");
     }
 }
