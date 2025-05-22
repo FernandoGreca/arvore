@@ -38,5 +38,12 @@ public class App {
         System.out.println("Percorendo Pos Ordem");
         arvore.percorrerPosOrdem();
         System.out.println("________________");
+
+        System.out.println();
+
+        System.out.println("________________");
+        System.out.println("Percorrendo em nivel");
+        arvore.percorrerEmNivel();
+        System.out.println("________________");
     }
 }

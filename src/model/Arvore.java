@@ -1,5 +1,8 @@
 package model;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Arvore {
     private No primeiro;
     private int contador;
@@ -84,5 +87,31 @@ public class Arvore {
         }
 
         System.out.println("Conteudo No " +aux.getConteudo());
+    }
+
+    // Em nivel 
+    public void percorrerEmNivel() {
+        chamadoPercorrerEmNivel(this.primeiro);
+    }
+    
+    public void chamadoPercorrerEmNivel(No aux) {
+        Queue<No> fila = new LinkedList<No>();
+
+        fila.add(aux);
+
+        while (aux != null) {
+            System.out.println("Conteudo No" + aux.getConteudo());
+            if (aux.getFilhoEsquerda() != null) {
+                fila.add(aux.getFilhoEsquerda());
+            }
+    
+            if (aux.getFilhoDireita() != null) {
+                fila.add(aux.getFilhoDireita());
+            }
+
+            fila.poll();
+            aux = fila.peek();
+        }
+
     }
 }
