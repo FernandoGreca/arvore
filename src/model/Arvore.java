@@ -22,68 +22,96 @@ public class Arvore {
     // Contar No
     public int contarNo() {
         No aux = this.primeiro;
-        percorrerContanto(aux);
+        this.contador++;
+        chamadoContarNoRecursivo(aux);
         return this.contador;
     }
 
-    private void percorrerContanto(No aux) {
+    private void chamadoContarNoRecursivo(No aux) {
         if (aux.getFilhoEsquerda() != null) {
             this.contador++;
-            percorrerContanto(aux.getFilhoEsquerda());
+            chamadoContarNoRecursivo(aux.getFilhoEsquerda());
         }
 
         if (aux.getFilhoDireita() != null) {
             this.contador++;
-            percorrerContanto(aux.getFilhoDireita());
+            chamadoContarNoRecursivo(aux.getFilhoDireita());
         }
+    }
+
+    public int contarNoSemRecursao() {
+        chamadoContarNo(this.primeiro);
+        return this.contador;
+    }
+
+    private int chamadoContarNo(No aux) {
+        Queue<No> fila = new LinkedList<No>();
+        
+        fila.add(aux);
+        int cont = 1;
+
+        while (aux != null) {
+            cont++;
+            if (aux.getFilhoEsquerda() != null) {
+                fila.add(aux.getFilhoEsquerda());
+            }
+    
+            if (aux.getFilhoDireita() != null) {
+                fila.add(aux.getFilhoDireita());
+            }
+
+            fila.poll();
+            aux = fila.peek();
+        }
+        return cont;
     }
 
     // Percorrer Pre Ordem
     public void percorrerPreOrdem() {
-        chamadoPercorrerPreOrdem(this.primeiro);
+        chamadoPercorrerPreOrdemRecursivo(this.primeiro);
     }
 
-    private void chamadoPercorrerPreOrdem(No aux) {
+    private void chamadoPercorrerPreOrdemRecursivo(No aux) {
         System.out.println("Conteudo No " + aux.getConteudo());
 
         if (aux.getFilhoEsquerda() != null) {
-            chamadoPercorrerPreOrdem(aux.getFilhoEsquerda());
+            chamadoPercorrerPreOrdemRecursivo(aux.getFilhoEsquerda());
         }
 
         if (aux.getFilhoDireita() != null) {
-            chamadoPercorrerPreOrdem(aux.getFilhoDireita());
+            chamadoPercorrerPreOrdemRecursivo(aux.getFilhoDireita());
         }
     }
 
     // Percorrer Em Ordem
     public void percorrerEmOrdem() {
-        chamadoPercorrerEmOrdem(this.primeiro);
+        chamadoPercorrerEmOrdemRecursivo(this.primeiro);
     }
 
-    public void chamadoPercorrerEmOrdem(No aux) {
+    public void chamadoPercorrerEmOrdemRecursivo(No aux) {
         if (aux.getFilhoEsquerda() != null) {
-            chamadoPercorrerEmOrdem(aux.getFilhoEsquerda());
+            chamadoPercorrerEmOrdemRecursivo(aux.getFilhoEsquerda());
         }
 
         System.out.println("Conteudo No " +aux.getConteudo());
 
         if (aux.getFilhoDireita() != null) {
-            chamadoPercorrerEmOrdem(aux.getFilhoDireita());
+            chamadoPercorrerEmOrdemRecursivo(aux.getFilhoDireita());
         }
     }
 
     // Percorrer Pos Ordem
     public void percorrerPosOrdem() {
-        chamadoPercorrerPosOrdem(this.primeiro);
+        chamadoPercorrerPosOrdemRecursivo(this.primeiro);
     }
 
-    private void chamadoPercorrerPosOrdem(No aux) {
+    private void chamadoPercorrerPosOrdemRecursivo(No aux) {
         if (aux.getFilhoEsquerda() != null) {
-            chamadoPercorrerPosOrdem(aux.getFilhoEsquerda());
+            chamadoPercorrerPosOrdemRecursivo(aux.getFilhoEsquerda());
         }
 
         if (aux.getFilhoDireita() != null) {
-            chamadoPercorrerPosOrdem(aux.getFilhoDireita());
+            chamadoPercorrerPosOrdemRecursivo(aux.getFilhoDireita());
         }
 
         System.out.println("Conteudo No " +aux.getConteudo());
@@ -94,7 +122,7 @@ public class Arvore {
         chamadoPercorrerEmNivel(this.primeiro);
     }
     
-    public void chamadoPercorrerEmNivel(No aux) {
+    private void chamadoPercorrerEmNivel(No aux) {
         Queue<No> fila = new LinkedList<No>();
 
         fila.add(aux);
@@ -112,6 +140,5 @@ public class Arvore {
             fila.poll();
             aux = fila.peek();
         }
-
     }
 }

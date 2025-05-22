@@ -16,6 +16,7 @@ public class App {
 
         System.out.println("________________");
         System.out.println("Quantidade de Nos " + arvore.contarNo());
+        System.out.println("Quantidade de Nos sem Resursao " + arvore.contarNoSemRecursao());
         System.out.println("________________");
 
         System.out.println();
