@@ -53,5 +53,12 @@ public class App {
         System.out.println("Contar Nó folha");
         System.out.println("Nós folha: " + arvore.contarNoFolha());
         System.out.println("________________");
+
+        System.out.println();
+
+        System.out.println("________________");
+        System.out.println("Contar Nó folha sem recursao");
+        System.out.println("Nós folha: " + arvore.contarNoFolhaSemRecusao());
+        System.out.println("________________");
     }
 }

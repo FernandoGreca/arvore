@@ -151,22 +151,53 @@ public class Arvore {
 
     // Contar nó folha
     public int contarNoFolha() {
+        this.contadorNoFolha = 0;
         contarNoFolhaRecursivo(this.primeiro);
         return this.contadorNoFolha;
     }
     private void contarNoFolhaRecursivo(No aux) {
         if (aux == null) return;
-
+        
         if (aux.getFilhoEsquerda() != null) {
             contarNoFolhaRecursivo(aux.getFilhoEsquerda());
         }
-
+        
         if (aux.getFilhoDireita() != null) {
             contarNoFolhaRecursivo(aux.getFilhoDireita());
         }
-
+        
         if (aux.getFilhoEsquerda() == null && aux.getFilhoDireita() == null) {
             this.contadorNoFolha++;
+        }
+    }
+    
+    // Contar no folha sem recursao
+    public int contarNoFolhaSemRecusao() {
+        this.contadorNoFolha = 0;
+        metodoContarNoFolhaSemRecursao(this.primeiro);
+        return this.contadorNoFolha;
+    }
+    private void metodoContarNoFolhaSemRecursao(No aux) {
+        Queue<No> fila = new LinkedList<No>();
+
+        fila.add(aux);
+
+        while (aux != null) {
+
+            if (aux.getFilhoEsquerda() != null) {
+                fila.add(aux.getFilhoEsquerda());
+            }
+    
+            if (aux.getFilhoDireita() != null) {
+                fila.add(aux.getFilhoDireita());
+            }
+
+            if (aux.getFilhoEsquerda() == null && aux.getFilhoDireita() == null) {
+                this.contadorNoFolha++;
+            }
+
+            fila.poll();
+            aux = fila.peek();
         }
     }
 
