@@ -23,7 +23,7 @@ public class Arvore {
     // Contar No
     public int contarNo() {
         No aux = this.primeiro;
-        this.contador++;
+        this.contador = 1;
         chamadoContarNoRecursivo(aux);
         return this.contador;
     }
@@ -172,13 +172,13 @@ public class Arvore {
     }
     
     // Contar no folha sem recursao
-    public int contarNoFolhaSemRecusao() {
-        this.contadorNoFolha = 0;
-        metodoContarNoFolhaSemRecursao(this.primeiro);
-        return this.contadorNoFolha;
+    public int contarNoFolhaSemRecusao() { 
+        return metodoContarNoFolhaSemRecursao(this.primeiro);
     }
-    private void metodoContarNoFolhaSemRecursao(No aux) {
+    private int metodoContarNoFolhaSemRecursao(No aux) {
         Queue<No> fila = new LinkedList<No>();
+
+        int count = 0;
 
         fila.add(aux);
 
@@ -193,12 +193,14 @@ public class Arvore {
             }
 
             if (aux.getFilhoEsquerda() == null && aux.getFilhoDireita() == null) {
-                this.contadorNoFolha++;
+                count++;
             }
 
             fila.poll();
             aux = fila.peek();
         }
+
+        return count;
     }
 
 }
