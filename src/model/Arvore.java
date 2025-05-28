@@ -6,6 +6,7 @@ import java.util.Queue;
 public class Arvore {
     private No primeiro;
     private int contador;
+    private int contadorNoFolha;
 
     public Arvore(String conteudo) {
         this.primeiro = new No(conteudo);
@@ -40,11 +41,11 @@ public class Arvore {
     }
 
     public int contarNoSemRecursao() {
-        chamadoContarNo(this.primeiro);
+        chamadoContarNoSemRecursao(this.primeiro);
         return this.contador;
     }
 
-    private int chamadoContarNo(No aux) {
+    private int chamadoContarNoSemRecursao(No aux) {
         Queue<No> fila = new LinkedList<No>();
         
         fila.add(aux);
@@ -72,6 +73,8 @@ public class Arvore {
     }
 
     private void chamadoPercorrerPreOrdemRecursivo(No aux) {
+        if (aux == null) return;
+
         System.out.println("Conteudo No " + aux.getConteudo());
 
         if (aux.getFilhoEsquerda() != null) {
@@ -89,6 +92,8 @@ public class Arvore {
     }
 
     public void chamadoPercorrerEmOrdemRecursivo(No aux) {
+        if (aux == null) return;
+
         if (aux.getFilhoEsquerda() != null) {
             chamadoPercorrerEmOrdemRecursivo(aux.getFilhoEsquerda());
         }
@@ -106,6 +111,8 @@ public class Arvore {
     }
 
     private void chamadoPercorrerPosOrdemRecursivo(No aux) {
+        if (aux == null) return;
+
         if (aux.getFilhoEsquerda() != null) {
             chamadoPercorrerPosOrdemRecursivo(aux.getFilhoEsquerda());
         }
@@ -114,7 +121,7 @@ public class Arvore {
             chamadoPercorrerPosOrdemRecursivo(aux.getFilhoDireita());
         }
 
-        System.out.println("Conteudo No " +aux.getConteudo());
+        System.out.println("Conteudo No " + aux.getConteudo());
     }
 
     // Em nivel 
@@ -141,4 +148,26 @@ public class Arvore {
             aux = fila.peek();
         }
     }
+
+    // Contar nó folha
+    public int contarNoFolha() {
+        contarNoFolhaRecursivo(this.primeiro);
+        return this.contadorNoFolha;
+    }
+    private void contarNoFolhaRecursivo(No aux) {
+        if (aux == null) return;
+
+        if (aux.getFilhoEsquerda() != null) {
+            contarNoFolhaRecursivo(aux.getFilhoEsquerda());
+        }
+
+        if (aux.getFilhoDireita() != null) {
+            contarNoFolhaRecursivo(aux.getFilhoDireita());
+        }
+
+        if (aux.getFilhoEsquerda() == null && aux.getFilhoDireita() == null) {
+            this.contadorNoFolha++;
+        }
+    }
+
 }
