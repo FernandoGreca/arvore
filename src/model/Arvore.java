@@ -20,6 +20,22 @@ public class Arvore {
         this.primeiro = primeiro;
     }
     
+    public int getContador() {
+        return contador;
+    }
+
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
+
+    public int getContadorNoFolha() {
+        return contadorNoFolha;
+    }
+
+    public void setContadorNoFolha(int contadorNoFolha) {
+        this.contadorNoFolha = contadorNoFolha;
+    }
+
     // Contar No
     public int contarNo() {
         No aux = this.primeiro;

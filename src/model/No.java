@@ -7,6 +7,7 @@ public class No {
     private ArrayList<AtributoAdicional> atributosAdiconais;
     private No filhoEsquerda;
     private No filhoDireita;
+    private int fatorDeBalanceamento;
 
     public No(String conteudo) {
         this.conteudo = conteudo;
@@ -38,5 +39,11 @@ public class No {
     }
     public void setFilhoDireita(No filhoDireita) {
         this.filhoDireita = filhoDireita;
+    }
+    public int getFatorDeBalanceamento() {
+        return fatorDeBalanceamento;
+    }
+    public void setFatorDeBalanceamento(int fatorDeBalanceamento) {
+        this.fatorDeBalanceamento = fatorDeBalanceamento;
     }
 }
