@@ -14,6 +14,7 @@ public class No {
         this.atributosAdiconais = new ArrayList<AtributoAdicional>();
         this.filhoEsquerda = null;
         this.filhoDireita = null;
+        this.fatorDeBalanceamento = 0;
     }
 
     public String getConteudo() {
