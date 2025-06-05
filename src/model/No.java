@@ -1,17 +1,13 @@
 package model;
 
-import java.util.ArrayList;
-
 public class No {
     private String conteudo;
-    private ArrayList<AtributoAdicional> atributosAdiconais;
     private No filhoEsquerda;
     private No filhoDireita;
     private int fatorDeBalanceamento;
 
     public No(String conteudo) {
         this.conteudo = conteudo;
-        this.atributosAdiconais = new ArrayList<AtributoAdicional>();
         this.filhoEsquerda = null;
         this.filhoDireita = null;
         this.fatorDeBalanceamento = 0;
@@ -22,12 +18,6 @@ public class No {
     }
     public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
-    }
-    public ArrayList<AtributoAdicional> getAtributosAdiconais() {
-        return atributosAdiconais;
-    }
-    public void setAtributosAdiconais(ArrayList<AtributoAdicional> atributosAdiconais) {
-        this.atributosAdiconais = atributosAdiconais;
     }
     public No getFilhoEsquerda() {
         return filhoEsquerda;
