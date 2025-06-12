@@ -1,4 +1,4 @@
-package model;
+package model.arvore;
 
 public class No {
     private String conteudo;

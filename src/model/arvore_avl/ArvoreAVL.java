@@ -1,4 +1,4 @@
-package model;
+package model.arvore_avl;
 
 public class ArvoreAVL {
     NoAVL raiz;

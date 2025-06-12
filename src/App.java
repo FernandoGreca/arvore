@@ -1,5 +1,5 @@
-import model.Arvore;
-import model.No;
+import model.arvore.Arvore;
+import model.arvore.No;
 
 public class App {
     public static void main(String[] args) throws Exception {
